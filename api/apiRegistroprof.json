@@ -1,0 +1,54 @@
+{
+  "profesB": [
+    {
+      "id": "1",
+      "tipoDocumento": "cc",
+      "numDoc": 45552220,
+      "nombres": "Sebastian",
+      "apellidos": "Ramirez",
+      "correo": "sebas@gmail.com",
+      "clave": "teatro111",
+      "rol": "Profesional"
+    },
+    {
+      "id": "2",
+      "tipoDocumento": "cc",
+      "numDoc": 16578942,
+      "nombres": "Sebastian Arturo",
+      "apellidos": "Danzas",
+      "correo": "danzas@gmail.com",
+      "clave": "danzas111",
+      "rol": "Profesional"
+    },
+    {
+      "id": "2882",
+      "tipoDocumento": "ce",
+      "numDoc": "45896235",
+      "nombres": "Harry Edward ",
+      "apellidos": "Styles Billes",
+      "correo": "harryS@gmail.com",
+      "clave": "harrysito123",
+      "rol": "Profesional"
+    },
+    {
+      "id": "4e90",
+      "tipoDocumento": "cc",
+      "numDoc": "765765765",
+      "nombres": "Pedro",
+      "apellidos": "Lopez",
+      "correo": "kkhkjhk@gmail.com",
+      "clave": "454353",
+      "rol": "Profesional"
+    },
+    {
+      "id": "7438",
+      "tipoDocumento": "cc",
+      "numDoc": "123456775",
+      "nombres": "Angie",
+      "apellidos": "calderon",
+      "correo": "kkhkjhk@gmail.com",
+      "clave": "nodes1234*",
+      "rol": "Profesional"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+.regisyini {
+    margin: 0;
+    padding: 0;
+    background: url('../../assets/fondoindex.png');
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 32px;
+}
+
+.inicios {
+    padding-bottom: 21vh;
+}
+
+.nnni {
+    margin-bottom: 57px;
+    padding: 20px;
+    width: 100%;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.142);
+    display: flex;
+    justify-content: space-around;
+    padding: 0%;
+}
+.nnn {
+    margin-bottom: 15px;
+    padding: 20px;
+    width: 100%;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.142);
+    display: flex;
+    justify-content: space-around;
+    padding: 0%;
+}
+
+.h2r,
+.p {
+    text-align: center;
+    padding-top: 6px;
+    margin-bottom: 25px;
+}
+
+.formr {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    /* Aumenta el ancho */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-label {
+    margin-bottom: 1px;
+    text-align: left;
+}
+
+.form-controll,
+.tp {
+    margin-bottom: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    /* Asegúrate de que el input tome todo el ancho disponible */
+}
+
+.form-controll:hover {
+    border-color: green;
+}
+
+.submit-btn {
+    background-color: green;
+    color: white;
+    margin-top: -4px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 350px;
+}

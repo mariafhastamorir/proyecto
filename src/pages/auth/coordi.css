@@ -1,0 +1,253 @@
+/* CSS Card de jornadas*/
+.jornadas {
+    padding: 20px;
+}
+
+.logouc {
+  width: 50px;
+  height: 50px;
+}
+
+.h1, .h2 {
+    color: #3f8b3b;
+    text-align: center;
+  }
+  
+.h2 {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: #3f8b3b;
+    text-align: center;  }
+  
+  .cardm {
+    border: none;
+    background-color: transparent;
+  }
+  
+  .card-bodyy {
+    background-color: #4F8D38;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  
+  .card-bodyy .imgg {
+    margin-bottom: 10px;
+    padding: 20px;
+  }
+  
+  /* CSS Card de jornadas hasta aquí*/
+
+  .butonimportar {
+    padding: 12px 24px;
+    border: none;
+    font-size: 16px;
+    background-color: #D4EEF8;
+    border-radius: 100px;
+    font-weight: 600;
+    color: rgba(22, 20, 20, 0.733);
+    box-shadow: 0 0 0 2px #ffffff20;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .butonimportar:hover {
+    box-shadow: 0 0 0 5px #2195f360;
+    color: #4097b9;  }
+
+.butonimportar:active {
+        scale: 0.95;
+}
+
+.butonBus {
+    padding: 12px 24px;
+    border: none;
+    font-size: 16px;
+    background-color: #D4EEF8;
+    border-radius: 100px;
+    font-weight: 600;
+    color: rgba(22, 20, 20, 0.733);
+    box-shadow: 0 0 0 2px #ffffff20;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .butonBus:hover {
+    box-shadow: 0 0 0 5px #2195f360;
+    color: #4097b9;  }
+
+.butonBus:active {
+    scale: 0.95;
+}
+  
+  .card-custom,
+  .importar {
+    background-color: #BDBDBD;
+    border-radius: 20px;
+    padding: 20px;
+  
+  }
+  
+  .card-custom {
+    text-align: center;
+  }
+  
+  .form-select,
+  .form-control,
+  .filter-input {
+    border-radius: 20px;
+    border: transparent;
+    padding: 5px;
+    margin: 5px;
+  }
+  
+  
+  .form-select {
+    background-color: #9F9E9E;
+  }
+  
+  .breadcrumb {
+    color: #4F8D38;
+    font-size: 25px;
+  }
+  
+  .breadcrumb-item a {
+    color: #376228;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .sopcionu {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-left: 50vh;
+    margin-top: 50px;
+    width: fit-content;
+}
+/*gestion fichas*/
+
+.btnBusc {
+  padding: 12px 24px;
+  border: none;
+  font-size: 16px;
+  background-color: #D4EEF8;
+  border-radius: 100px;
+  font-weight: 600;
+  color: rgba(22, 20, 20, 0.733);
+  box-shadow: 0 0 0 2px #ffffff20;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.btnBusc:hover {
+  box-shadow: 0 0 0 5px #2195f360;
+  color: #4097b9;  }
+
+.btnBusc:active {
+      scale: 0.95;
+}
+
+.btnOkk {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  margin-right: 50px;
+  margin-left: 30vh;
+  border: none;
+  font-size: 16px;
+  background-color: #D4EEF8;
+  border-radius: 100px;
+  font-weight: 600;
+  color: rgba(22, 20, 20, 0.733);
+  box-shadow: 0 0 0 2px #ffffff20;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.sopcionc {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin-left: 65vh;
+  margin-top: 50px;
+  width: fit-content;
+  margin-bottom: 20vh;
+}
+
+/*gestion fichas*/
+
+/*importar fichas*/
+
+.ingficha {
+  background-color: #dcdcdc;
+  border-radius: 20px;
+  border-color:  #dcdcdc;
+  margin-left: 20px;
+  padding-left: 10px;
+}
+
+/*importar fichas*/
+
+/*gestion instructor*/
+
+.butonimportarinstru {
+  padding: 12px 24px;
+  border: none;
+  margin-left: 156vh;
+  font-size: 16px;
+  background-color: #D4EEF8;
+  border-radius: 100px;
+  font-weight: 600;
+  color: rgba(22, 20, 20, 0.733);
+  box-shadow: 0 0 0 2px #ffffff20;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.butonimportarinstru:hover {
+  box-shadow: 0 0 0 5px #2195f360;
+  color: #4097b9;  }
+
+.butonimportarinstru:active {
+      scale: 0.95;
+}
+
+/*gestion instructor*/
+
+/*perfil*/
+
+.perfil {
+  padding: 20px;
+  background-color: #dcdcdc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Asegura que el formulario ocupe el ancho disponible */
+  max-width: 500px; /* Limita el ancho máximo del formulario */
+}
+
+.fondoo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerr{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/*perfil*/
