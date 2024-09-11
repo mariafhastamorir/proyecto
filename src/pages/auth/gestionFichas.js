@@ -66,7 +66,7 @@ const GestionFichas = () => {
 
                     <div className="col-md-4">
                         <div className="card-custom">
-                            <label>Seleccione Coordinación 1: </label>
+                            <label>Seleccione Coordinación: </label>
                             <input type="text" className="filter-input mb-2" placeholder="Buscar..." />
                             <select className="form-select" aria-label="Default select example" required
                                 value={selectedOption1}
@@ -81,7 +81,8 @@ const GestionFichas = () => {
 
                     <div className="col-md-4">
                         <div className="card-custom">
-                            <label>Seleccione Coordinación 2: </label>
+                            <label>Seleccione Programa: </label>
+                            <br />
                             <input type="text" className="filter-input mb-2" placeholder="Buscar..." />
                             <select className="form-select" aria-label="Default select example" required
                                 value={selectedOption2}
@@ -96,7 +97,7 @@ const GestionFichas = () => {
 
                     <div className="col-md-4">
                         <div className="card-custom">
-                            <label>Seleccione Coordinación 3: </label>
+                            <label>Seleccione Numero de ficha: </label>
                             <input type="text" className="filter-input mb-2" placeholder="Buscar..." />
                             <select className="form-select" aria-label="Default select example" required
                                 value={selectedOption3}

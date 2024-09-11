@@ -86,8 +86,9 @@ const ConsultarFichas = () => {
                     </div>
 
                     <div className="col-md-4">
-                        <div className="card-custom">
-                            <label>Seleccione Programa:</label>
+                        <div className="card-custom ">
+                            <label className="">Seleccione Programa: </label>
+                            <br />
                             <input type="text" className="filter-input mb-2" placeholder="Buscar..." />
                             <select className="form-select" value={selectedOption2} onChange={(e) => setSelectedOption2(e.target.value)}>
                                 <option value="">Seleccionar...</option>

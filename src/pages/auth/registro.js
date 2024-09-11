@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import  axios from "axios";
 import './registro.css';
 
 const ImagesB = require.context('../../assets', true);
 
 const Registro = () => {
-
+    
     const [tipoDocumento, settipoDocumento] = useState('');
     const [numeroDocumento, setnumeroDocumento] = useState('');
     const [nombres, setnombres] = useState('');
@@ -24,21 +24,21 @@ const Registro = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8000/registro', {
-                tipoDocumento,
-                numeroDocumento,
-                nombres,
-                apellidos,
-                correoUsuario,
-                claveUsuario,
-                idRol
-            });
-            console.log(response.data);
+          const response = await axios.post('http://localhost:8000/registro', {
+            tipoDocumento,
+            numeroDocumento,
+            nombres,
+            apellidos,
+            correoUsuario,
+            claveUsuario,
+            idRol
+          });
+          console.log(response.data);
         } catch (error) {
-            console.error(error.response ? error.response.data : error);
+          console.error(error.response ? error.response.data : error);
         }
-    };
-
+      };
+    
 
     return (
         <div className="regisyini">
@@ -55,7 +55,7 @@ const Registro = () => {
                             <div className="row">
                                 <div className="col-md-6 mb-3">
                                     <label htmlFor="document-type" className="form-label">Tipo de Documento</label>
-                                    <select className="tp form-selectt" value={tipoDocumento} onChange={(e) => settipoDocumento(e.target.value)} required>
+                                    <select className="tp form-selectt" value={tipoDocumento}  onChange={(e) => settipoDocumento(e.target.value)} required>
                                         <option value="">Seleccione una opción</option>
                                         <option value="C.C">Cédula de Ciudadania</option>
                                         <option value="C.E">Cédula de Extranjeria</option>
@@ -167,3 +167,4 @@ const Registro = () => {
 }
 
 export default Registro;
+
