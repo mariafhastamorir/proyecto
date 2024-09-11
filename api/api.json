@@ -70,7 +70,7 @@
       "idProfesional": 3,
       "nombre_profesional": "Sebastian Ramirez",
       "numFicha": 2898754,
-      "id": "52f6"
+      "id": "ed96"
     },
     {
       "idTaller": 2,
@@ -80,7 +80,7 @@
       "idProfesional": 4,
       "nombre_profesional": "Sebastian Segundo",
       "numFicha": 2470719,
-      "id": "94a1"
+      "id": "a18c"
     },
     {
       "idTaller": 3,
@@ -90,7 +90,7 @@
       "idProfesional": 5,
       "nombre_profesional": "Maria Rodriguez",
       "numFicha": 2789765,
-      "id": "883b"
+      "id": "0f3a"
     },
     {
       "idTaller": 4,
@@ -100,43 +100,43 @@
       "idProfesional": 6,
       "nombre_profesional": "Claudia Gomez",
       "numFicha": 2398456,
-      "id": "91ed"
+      "id": "9943"
     },
     {
-      "id": "4d4a",
+      "id": "550d",
+      "centroFormacion": "calle52",
+      "jornada": "diurna",
+      "coordinacion": "teleinformatica",
+      "ficha": "2898754",
+      "horaDisponible": "13:00",
+      "tema": "teatro",
+      "profesional": "sebastianRamirez",
+      "observaciones": "",
+      "fechaTaller": "2024-09-09T05:00:00.000Z"
+    },
+    {
+      "id": "ac08",
+      "centroFormacion": "calle64",
+      "jornada": "manana",
+      "coordinacion": "mercadeo",
+      "ficha": "2898754",
+      "horaDisponible": "13:00",
+      "tema": "teatro",
+      "profesional": "sebastianRamirez",
+      "observaciones": "ingresa con ",
+      "fechaTaller": "2024-09-11T05:00:00.000Z"
+    },
+    {
+      "id": "113d",
       "centroFormacion": "calle52",
       "jornada": "diurna",
       "coordinacion": "teleinformatica",
       "ficha": "2898754",
       "horaDisponible": "15:30",
-      "tema": "teatro",
+      "tema": "musica",
       "profesional": "sebastianRamirez",
-      "observaciones": "",
-      "fechaTaller": "2024-08-27T05:00:00.000Z"
-    },
-    {
-      "id": "6a73",
-      "centroFormacion": "calle52",
-      "jornada": "manana",
-      "coordinacion": "teleinformatica",
-      "ficha": "2898754",
-      "horaDisponible": "13:00",
-      "tema": "teatro",
-      "profesional": "sebastianRamirez",
-      "observaciones": "",
-      "fechaTaller": "2024-08-27T05:00:00.000Z"
-    },
-    {
-      "id": "62a8",
-      "centroFormacion": "calle52",
-      "jornada": "manana",
-      "coordinacion": "teleinformatica",
-      "ficha": "2470719",
-      "horaDisponible": "13:00",
-      "tema": "teatro",
-      "profesional": "sebastianRamirez",
-      "observaciones": "ingresa con",
-      "fechaTaller": "2024-09-18T05:00:00.000Z"
+      "observaciones": "ingresa con yudi",
+      "fechaTaller": "2024-09-10T05:00:00.000Z"
     }
   ],
   "fichas": [
@@ -166,16 +166,26 @@
     },
     {
       "idFicha": null,
-      "numFicha": "2895573",
-      "programaFormacion": "Implementación de infraestructura de tecnologías de la información y las comunicaciones",
-      "nombreCoordinacion": "teleinformática e industrias creativas",
-      "id": "8abe"
-    },
-    {
-      "idFicha": null,
       "numFicha": "2878641",
       "programaFormacion": "Técnico Programación de software",
       "nombreCoordinacion": "teleinformática e industrias creativas",
+      "jornada": "diurna",
+      "horario": [
+        {
+          "numeroAmbiente": "412",
+          "dia": "martes",
+          "horaInicio": "07:00:00",
+          "horaFin": "12:20:00",
+          "sede": "Calle 52"
+        },
+        {
+          "numeroAmbiente": "413",
+          "dia": "miercoles",
+          "horaInicio": "12:40:00",
+          "horaFin": "18:00:00",
+          "sede": "Calle 52"
+        }
+      ],
       "id": "4855"
     },
     {
@@ -183,6 +193,23 @@
       "numFicha": "2877645",
       "programaFormacion": "Mantenimiento de equipos de computo",
       "nombreCoordinacion": "teleinformática e industrias creativas",
+      "jornada": "diurna",
+      "horario": [
+        {
+          "numeroAmbiente": "412",
+          "dia": "martes",
+          "horaInicio": "07:00:00",
+          "horaFin": "12:20:00",
+          "sede": "Calle 52"
+        },
+        {
+          "numeroAmbiente": "413",
+          "dia": "miercoles",
+          "horaInicio": "12:40:00",
+          "horaFin": "18:00:00",
+          "sede": "Calle 52"
+        }
+      ],
       "id": "8a78"
     },
     {
@@ -190,6 +217,23 @@
       "numFicha": "2895558",
       "programaFormacion": "Gestión de redes de datos",
       "nombreCoordinacion": "teleinformática e industrias creativas",
+      "jornada": "diurna",
+      "horario": [
+        {
+          "numeroAmbiente": "412",
+          "dia": "martes",
+          "horaInicio": "07:00:00",
+          "horaFin": "12:20:00",
+          "sede": "Calle 52"
+        },
+        {
+          "numeroAmbiente": "413",
+          "dia": "miercoles",
+          "horaInicio": "12:40:00",
+          "horaFin": "18:00:00",
+          "sede": "Calle 52"
+        }
+      ],
       "id": "fc8a"
     },
     {

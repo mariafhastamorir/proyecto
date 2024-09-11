@@ -29,26 +29,6 @@
       "correo": "harryS@gmail.com",
       "clave": "harrysito123",
       "rol": "Profesional"
-    },
-    {
-      "id": "4e90",
-      "tipoDocumento": "cc",
-      "numDoc": "765765765",
-      "nombres": "Pedro",
-      "apellidos": "Lopez",
-      "correo": "kkhkjhk@gmail.com",
-      "clave": "454353",
-      "rol": "Profesional"
-    },
-    {
-      "id": "7438",
-      "tipoDocumento": "cc",
-      "numDoc": "123456775",
-      "nombres": "Angie",
-      "apellidos": "calderon",
-      "correo": "kkhkjhk@gmail.com",
-      "clave": "nodes1234*",
-      "rol": "Profesional"
     }
   ]
 }
