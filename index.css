@@ -1,0 +1,65 @@
+body {
+  background-color: #eaffe4;
+  color:#376228;
+}
+
+.navind {
+  background-color: #4f8d38;
+  margin-bottom: 51px;
+  padding: 20px;
+}
+
+.h2 {
+  font-weight: bold;
+  margin-left: 14vh;
+}
+
+.index-box {
+  padding: 3px;
+}
+
+.content-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.imgindex img {
+  display: flex;
+  justify-content: left;
+  align-items: flex-end;
+  height: 65vh;
+  margin-top: 23px;
+}
+
+.d-grid {
+  margin-top: 20px;
+  display: flex; 
+  flex-direction: column;
+  gap: 10px;
+  width: 200px;
+}
+
+
+.text-and-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-right: 45px;
+  
+}
+
+.reg{
+  color: #4f8d38;
+  border-radius: 25px;
+  width: 410px;
+}
+
+.iniciars {
+  background-color: #4f8d38;
+  color: white;
+  border-radius: 25px;
+  width: 410px;
+}
