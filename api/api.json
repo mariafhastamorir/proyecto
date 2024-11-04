@@ -1,0 +1,166 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "tipo_documento": "cc",
+      "numdoc": 11100022211,
+      "nombres": "Yudi",
+      "apellidos": "Moreno",
+      "correo": "yudi@gmail.com",
+      "clave": "yudi123",
+      "rol": "Administrador"
+    },
+    {
+      "id": "2",
+      "tipo_documento": "cc",
+      "numdoc": 122333002,
+      "nombres": "Ana",
+      "apellidos": "Bonanza",
+      "correo": "andre3@gmail.com",
+      "clave": "andrea321",
+      "rol": "Administrador"
+    },
+    {
+      "id": "3",
+      "tipo_documento": "cc",
+      "numdoc": 4555222,
+      "nombres": "Sebastian",
+      "apellidos": "Ramirez",
+      "correo": "sebas@gmail.com",
+      "clave": "teatro111",
+      "rol": "Profesional"
+    },
+    {
+      "id": "4",
+      "tipo_documento": "cc",
+      "numdoc": 5544666,
+      "nombres": "Sebastian",
+      "apellidos": "Danzas",
+      "correo": "sebas2@gmail.com",
+      "clave": "musica222",
+      "rol": "Profesional"
+    },
+    {
+      "id": "5",
+      "tipo_documento": "cc",
+      "numdoc": 454365544,
+      "nombres": "Mario",
+      "apellidos": "Coordi",
+      "correo": "marriio@gmail.com",
+      "clave": "cordi",
+      "rol": "Coordinador"
+    },
+    {
+      "id": "6",
+      "tipo_documento": "cc",
+      "numdoc": 5454666,
+      "nombres": "Gustavo",
+      "apellidos": "Beltran",
+      "correo": "gustavin@gmail.com",
+      "clave": "gus222",
+      "rol": "Instructor"
+    }
+  ],
+  "talleres": [
+    {
+      "idTaller": 1,
+      "fechaTaller": "17/08/2024",
+      "horaTaller": "3:00pm",
+      "tematica": "Teatro",
+      "idProfesional": 3,
+      "nombre_profesional": "Sebastian Ramirez",
+      "numFicha": 2898754,
+      "id": "5da3"
+    },
+    {
+      "idTaller": 2,
+      "fechaTaller": "17/08/2024",
+      "horaTaller": "2:30pm",
+      "tematica": "Música",
+      "idProfesional": 4,
+      "nombre_profesional": "Sebastian Segundo",
+      "numFicha": 2470719,
+      "id": "ea40"
+    },
+    {
+      "idTaller": 3,
+      "fechaTaller": "17/08/2024",
+      "horaTaller": "3:30pm",
+      "tematica": "Salud",
+      "idProfesional": 5,
+      "nombre_profesional": "Maria Rodriguez",
+      "numFicha": 2789765,
+      "id": "4610"
+    },
+    {
+      "idTaller": 4,
+      "fechaTaller": "17/08/2024",
+      "horaTaller": "3:30pm",
+      "tematica": "Poliza",
+      "idProfesional": 6,
+      "nombre_profesional": "Claudia Gomez",
+      "numFicha": 2398456,
+      "id": "cf71"
+    },
+    {
+      "id": "ba69",
+      "centroFormacion": "calle52",
+      "jornada": "manana",
+      "coordinacion": "teleinformatica",
+      "ficha": "2470719",
+      "horaDisponible": "13:00",
+      "tema": "teatro",
+      "profesional": "sebastianRamirez",
+      "observaciones": "ingresa con psicologa",
+      "fechaTaller": "2024-10-09T05:00:00.000Z"
+    }
+  ],
+  "centros": [
+    {
+      "id": "1",
+      "nombre": "Centro de Formación A"
+    },
+    {
+      "id": "2",
+      "nombre": "Centro de Formación B"
+    },
+    {
+      "id": "3",
+      "nombre": "Centro de Formación C"
+    }
+  ],
+  "servicios": [
+    {
+      "id": "1",
+      "nombre": "Consulta General"
+    },
+    {
+      "id": "2",
+      "nombre": "Odontología"
+    },
+    {
+      "id": "3",
+      "nombre": "Pediatría"
+    }
+  ],
+  "agendar": [
+    {
+      "id": "1ef3",
+      "servicio": "Consulta General",
+      "fecha": "2024-08-06T05:00:00.000Z",
+      "hora": "08:00"
+    },
+    {
+      "id": "174a",
+      "servicio": "Consulta General",
+      "fecha": "2024-08-13T05:00:00.000Z",
+      "hora": "23:12"
+    },
+    {
+      "id": "f75a",
+      "servicio": "Consulta General",
+      "fecha": "2024-08-13T05:00:00.000Z",
+      "hora": "11:17"
+    }
+  ]
+}
