@@ -5,7 +5,6 @@ from app.models import *
 from app.schemas import *
 from datetime import datetime, timedelta
 from typing import List
-from jose import jwt
 from sqlalchemy import func
 import bcrypt
 from jose import jwt
