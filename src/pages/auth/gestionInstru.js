@@ -1,42 +1,56 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import NavbarCordi from '../../components/nabCordi';
-import PiePagina from '../../components/piePagina';
+import NavbarCordi from "../../components/nabCordi";
+import PiePagina from "../../components/piePagina";
 import "./coordi.css";
 import axios from "axios";
-import Modal from '../../components/modal';
 
 const GestionInstru = () => {
-    const [selectedCoordinacion, setSelectedCoordinacion] = useState('');
     const [usuarios, setUsuarios] = useState([]);
-    const [showModal, setShowModal] = useState(false); // Estado para controlar la visibilidad del modal
+    const [searchTerm, setSearchTerm] = useState(""); // Estado para el término de búsqueda
+    const [filteredUsuarios, setFilteredUsuarios] = useState([]); // Lista filtrada
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSearch = () => {
+        const token = localStorage.getItem("token"); // Suponiendo que guardaste el token al iniciar sesión
 
-        if (!selectedCoordinacion) {
-            setShowModal(true); // Mostrar el modal si no se selecciona una coordinación
+        if (!token) {
+            alert("No hay un token de sesión. Por favor inicia sesión.");
             return;
         }
 
-        console.log('Selected coordinacion:', selectedCoordinacion);
-
-        axios.post('http://localhost:8000/coordinacionselecionada', {
-            coordinacionInstru: selectedCoordinacion,
-        })
+        axios
+            .get("http://localhost:8000/usuarios/instructores", {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
             .then((response) => {
-                console.log('Response from backend:', response.data);
-                setUsuarios(response.data); // Guardar los usuarios en el estado
+                setUsuarios(response.data);
+                setFilteredUsuarios(response.data); // Inicializa la lista filtrada con todos los usuarios
             })
             .catch((error) => {
-                console.error('Error:', error);
+                console.error("Error:", error.response?.data?.detail || error.message);
             });
+    };
+
+    const handleFilter = (e) => {
+        const value = e.target.value.toLowerCase();
+        setSearchTerm(value);
+
+        const filtered = usuarios.filter(
+            (usuario) =>
+                usuario.nombres.toLowerCase().includes(value) ||
+                usuario.apellidos.toLowerCase().includes(value) ||
+                usuario.numeroDocumento.toString().includes(value)
+        );
+        setFilteredUsuarios(filtered);
     };
 
     return (
         <div>
             <NavbarCordi />
             <main className="container text-center">
+
                 <div className="col-md-5 text-end">
                     <Link to={`/importarInstru  `}>
                         <button className="butonimportarinstru">
@@ -46,58 +60,63 @@ const GestionInstru = () => {
                     </Link>
                 </div>
                 <h1 className="hh1">Consultar Instructores</h1>
-                <div className="row justify-content-center mb-4">
-                    <div className="col-auto">
-                        <form className="d-inline-flex" onSubmit={handleSubmit}>
-                            <select className="temas" value={selectedCoordinacion} onChange={(e) => setSelectedCoordinacion(e.target.value)}>
-                                <option value="">Coordinación</option>
-                                <option value="logistica">Logística</option>
-                                <option value="mercadeo">Mercadeo</option>
-                                <option value="teleinformática e industrias creativas">Teleinformática e industrias creativas</option>
-                            </select>
-
-                            <button className="btnBus ms-2" type="submit" >
-                                <img width={30} height={30} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAAsTAAALEwEAmpwYAAAClklEQVR4nL1Vz2sTURBeVLSiPXgRWpEibUmzM4k3UTzUXwexkO6bsHgRe1VaWmz1XPRvEdQUpaJkJrnEH4WeCtJU0PoviGK9+AMbmbcbm9TsdrcGBx7svn1vv/m++d48x4kIX9whYrhjBB6R4Gsd+mwEbus351+DqtlhEnxMjJsk2Og4GDeJcWHXgCToGcavwQ9hlRhmipyFa5X8IR36rHPEUA9BNzzOjacHEfxFgt9I4Ob8vLMnaq1f8vcadieN4HfdkxhM5QqZKMj5pMmZintBwZRZIhltTQQbHuONpCDNIMGpsG4Lzo7Ft4WH1Ti5YmUUXNN/eGUYjFyodg0yghl9H3ueO5IWzFTcW6E55iIXkUBJF/ll1w3f743WRvelA8qj/sMwPowBsoexUVjM9NpNDC91YxqgwmKm1wIJvEoOJPDOMNzdFRDjUuSisMVsScdQJYbPppI/mlY6inPedjOoxcPO8GKiNtCTygyMs05889TeBXW1ql9y9xPjmxBsOdayzh97v7VdpZodjs1IKQcau5N287OTx0hgJZiDH8RwnwSueuKeMjzS18aGcTpM6smO1C0rwQ1tJ8Vy7qLOqcWNwPWga8CyHgNNxC+dPriVYO6SJqLty6/kTzhJQhuj0g9715RKEisX47RlG9Tmo8d4RhlfLg8dSASmzIIzgWtaZHWUX3MP67DuYpzVmoRrvpDAp/a7Curb5Y2WUWsWc/EF1wmUxgWOFxnO/f1dz2ICMMuuDIPau4jxgb3GGZc0AWXZ6kSqwNnOCcH7QjXT73QrJmoDPS03bjszxnV1cNfADI/0qVz/BaxQzfRHgZHg064BOU0wxvUO9VrpKpCGymQYP7TY/adhHOs6UBNM5bJtrIxXdPI3h6rp/8oovdgAAAAASUVORK5CYII=" />
-                                Buscar
-                            </button>
-                        </form>
-                    </div>
+                <div className="text-center mt-5">
+                    <button type="button" className="btn btnBusc" onClick={handleSearch}>
+                        <p>
+                            <img width="40"
+                                height="40"
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAAsTAAALEwEAmpwYAAAClklEQVR4nL1Vz2sTURBeVLSiPXgRWpEibUmz
+                             M4k3UTzUXwexkO6bsHgRe1VaWmz1XPRvEdQUpaJkJrnEH4WeCtJU0PoviGK9+AMbmbcbm9TsdrcGBx7svn1vv/m++d48x4kIX9whYrhjBB6R4Gsd+mwEbus351+DqtlhEnxMjJsk2Og
+                             4GDeJcWHXgCToGcavwQ9hlRhmipyFa5X8IR36rHPEUA9BNzzOjacHEfxFgt9I4Ob8vLMnaq1f8vcadieN4HfdkxhM5QqZKMj5pMmZintBwZRZIhltTQQbHuONpCDNIMGpsG4Lzo7Ft4
+                             WH1Ti5YmUUXNN/eGUYjFyodg0yghl9H3ueO5IWzFTcW6E55iIXkUBJF/ll1w3f743WRvelA8qj/sMwPowBsoexUVjM9NpNDC91YxqgwmKm1wIJvEoOJPDOMNzdFRDjUuSisMVsScdQJ
+                             YbPppI/mlY6inPedjOoxcPO8GKiNtCTygyMs05889TeBXW1ql9y9xPjmxBsOdayzh97v7VdpZodjs1IKQcau5N287OTx0hgJZiDH8RwnwSueuKeMjzS18aGcTpM6smO1C0rwQ1tJ8Vy
+                             7qLOqcWNwPWga8CyHgNNxC+dPriVYO6SJqLty6/kTzhJQhuj0g9715RKEisX47RlG9Tmo8d4RhlfLg8dSASmzIIzgWtaZHWUX3MP67DuYpzVmoRrvpDAp/a7Curb5Y2WUWsWc/EF1wm
+                             UxgWOFxnO/f1dz2ICMMuuDIPau4jxgb3GGZc0AWXZ6kSqwNnOCcH7QjXT73QrJmoDPS03bjszxnV1cNfADI/0qVz/BaxQzfRHgZHg064BOU0wxvUO9VrpKpCGymQYP7TY/adhHOs6UB
+                             NM5bJtrIxXdPI3h6rp/8oovdgAAAAASUVORK5CYII="
+                            /> Buscar Instructores
+                        </p>
+                    </button>
                 </div>
 
-                <table className='table'>
+                {/* Campo de búsqueda */}
+                <div className="mt-3">
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Buscar por nombre, documento o correo"
+                        value={searchTerm}
+                        onChange={handleFilter} // Llama al manejador de filtro al escribir
+                    />
+                </div>
+
+                <table className="table mt-4">
                     <thead>
                         <tr>
                             <th>Nombre</th>
                             <th>Documento</th>
+                            <th>Correo</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {usuarios.length > 0 ? (
-                            usuarios.map((usuario) => (
+                        {filteredUsuarios.length > 0 ? (
+                            filteredUsuarios.map((usuario) => (
                                 <tr key={usuario.idUsuario}>
-                                    <td>{usuario.nombres} {usuario.apellidos}</td>
+                                    <td>
+                                        {usuario.nombres} {usuario.apellidos}
+                                    </td>
                                     <td>{usuario.numeroDocumento}</td>
+                                    <td>{usuario.correoUsuario}</td>
                                 </tr>
                             ))
                         ) : (
                             <tr>
-                                <td colSpan="2">No hay instructores de la Coordinación.</td>
+                                <td colSpan="3">No hay instructores disponibles.</td>
                             </tr>
                         )}
                     </tbody>
                 </table>
             </main>
             <PiePagina />
-
-            {/* Modal personalizado */}
-            <Modal
-                show={showModal}
-                onClose={() => setShowModal(false)} // Cerrar el modal
-                title="Advertencia"
-            >
-                <p>Por favor, seleccione una coordinación antes de continuar.</p>
-                <button onClick={() => setShowModal(false)}>Aceptar</button>
-            </Modal>
         </div>
     );
 };
