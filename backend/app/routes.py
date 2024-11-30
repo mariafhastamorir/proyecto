@@ -1,13 +1,16 @@
 from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi.security import OAuth2PasswordBearer
+from fastapi.encoders import jsonable_encoder
 from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models import *
 from app.schemas import *
 from datetime import datetime, timedelta
+from fastapi import Query
 from typing import List
 from sqlalchemy import func
 import bcrypt
-from jose import jwt
+from jose import jwt, JWTError
 
 
 
@@ -76,10 +79,10 @@ def update_estado_usuario(idUsuario: int, estado: str, db: Session = Depends(get
 
 SECRET_KEY = "tu_clave_secreta"
 ALGORITHM = "HS256"
-#Tiempo de acceso y su duración
+# Tiempo de acceso y su duración
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
-#Creación del token
+# Creación del token
 def create_access_token(data: dict):
     to_encode = data.copy()
     expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
@@ -87,7 +90,7 @@ def create_access_token(data: dict):
     token = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return token
 
-#Login
+# Login
 @router.post("/login")
 def login(user: UsuarioLogin, db: Session = Depends(get_db)):
     # Verificar si el usuario existe
@@ -104,9 +107,16 @@ def login(user: UsuarioLogin, db: Session = Depends(get_db)):
     if not bcrypt.checkpw(user.claveUsuario.encode('utf-8'), usuario.claveUsuario.encode('utf-8')):
         raise HTTPException(status_code=401, detail="Contraseña incorrecta")
     
-    # Crear un token con los datos del usuario
-    access_token = create_access_token(data={"sub": usuario.numeroDocumento, "rol": usuario.idRol, "nombres": usuario.nombres})
+    # Crear un token con los datos del usuario, incluyendo la coordinación
+    access_token = create_access_token(data={
+        "sub": usuario.numeroDocumento, 
+        "rol": usuario.idRol, 
+        "nombres": usuario.nombres,
+        "coordinacion": usuario.coordinacionInstru  # Agregamos la coordinación
+    })
+    
     return {"access_token": access_token, "token_type": "bearer"}
+
 
 
 
@@ -311,6 +321,7 @@ def editar_taller(idTaller: int, taller: TallerUpdate, db: Session = Depends(get
     return taller_a_editar
 
 
+#Filtros fichas en administrador
 
 @router.post("/guardar-turno/")
 def guardar_turno(turno_data: Turno, db: Session = Depends(get_db)):
@@ -359,6 +370,48 @@ def get_horarios_por_ficha(num_ficha: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Horarios no encontrados para la ficha")
 
     return horarios
+
+
+
+# Decodificamos el token para extraer la coordinación y el rol del usuario que inició sesión.
+def decode_access_token(token: str):
+    if not token:
+        raise HTTPException(status_code=401, detail="Token no proporcionado")
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        return payload
+    except JWTError:
+        raise HTTPException(status_code=401, detail="Token inválido o expirado")
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
+
+#Filtro instructores para rol coordinador
+
+@router.get("/usuarios/instructores")
+def obtener_instructores(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+    # Decodificar el token
+    user_data = decode_access_token(token)
+    usuario_coordinacion = user_data.get("coordinacion")
+    usuario_rol = user_data.get("rol")
+
+    # Validar el rol del usuario
+    if usuario_rol != 2:  # Suponiendo que "2" corresponde al rol de coordinador
+        raise HTTPException(status_code=403, detail="Acceso no autorizado")
+
+    # Consultar instructores de la misma coordinación
+    instructores = db.query(Usuario).filter(
+        Usuario.idRol == 4,  # Suponiendo que "4" es el rol de instructor
+        Usuario.coordinacionInstru == usuario_coordinacion
+    ).all()
+
+    if not instructores:
+        return {"message": "No se encontraron instructores para la coordinación."}
+
+    # Serializar los datos para retornarlos como JSON
+    resultado = jsonable_encoder(instructores)
+
+    return resultado
+
 
 
 

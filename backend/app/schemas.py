@@ -114,7 +114,7 @@ class TallerUpdate(BaseModel):
     numFicha: str
     fechaYHora: str  # Asegúrate de usar el formato adecuado para la fecha y hora
 
-#Filtros de ficha por jornada
+#Filtros de ficha por jornada 
 class Turno(BaseModel):
     turno: str #turno hace referencia a jornada
     
@@ -134,6 +134,11 @@ class HorarioFichaResponse(BaseModel):
     horaInicio: time | None
     horaFin: time | None
     sede: str | None
+
+#Filtro para ficha en rol coordi 
+
+class Turno2(BaseModel):
+    turno: str
 """
 
 class ProfesionalCreate(BaseModel):
